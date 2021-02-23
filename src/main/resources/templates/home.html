@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Welcome Spring !!!<br>
+<h1 th:text="${msg}"></h1>
+Add User:
+<form action="/addUser" method="post">
+
+    <input type="text" name="name" placeholder="Plese inpod"><br>
+    <input type="text" name="surname" placeholder="Plese inpod"><br>
+    <input type="submit" value="add"><br>
+</form>
+<ul>
+    <div th:each="users: ${user}">
+        <li  th:text="${users.name} + ' ' + ${users.suname}"></li>
+        <a th:href="@{/deleteUser(id=${users.id})}">delete</a>
+
+    </div>
+</ul>
+<a href="about">About Up</a>
+</body>
+</html>
